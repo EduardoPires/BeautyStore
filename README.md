@@ -1,4 +1,4 @@
-# Nome do Projeto
+# BeautyStore
 
 Loja virtual de produtos de beleza
 
