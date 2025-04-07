@@ -82,12 +82,12 @@ A estrutura do projeto é organizada da seguinte forma:
     
 3.  **Executar a Aplicação MVC:**
     
-    -   `No visualStudio, selecione o projeto BeautyStore.MVC, modo Development e clique no botão executar.`   
-    -   Acesse a aplicação em:  [https://localhost:7227](http://localhost:7227)
+    -   No visualStudio, selecione o projeto BeautyStore.MVC, modo Development e clique no botão executar.  
+    -   Acesse a aplicação em:  [https://localhost:7227](https://localhost:7227)
 4.  **Executar a API:**
     
-    -   `No visualStudio, selecione o projeto BeautyStore.API, modo Development e cliquei no botão executar.`
-    -   Acesse a documentação da API em:  [https://localhost:7197/swagger](http://localhost:7197/swagger)
+    -   No visualStudio, selecione o projeto BeautyStore.API, modo Development e cliquei no botão executar.
+    -   Acesse a documentação da API em:  [https://localhost:7197/swagger](https://localhost:7197/swagger)
 
 ## **7. Instruções de Configuração**
 
@@ -98,7 +98,7 @@ A estrutura do projeto é organizada da seguinte forma:
 
 A documentação da API está disponível através do Swagger. Após iniciar a API, acesse a documentação em:
 
-[https://localhost:7197/swagger](http://localhost:7197/swagger)
+[https://localhost:7197/swagger](https://localhost:7197/swagger)
 
 ## **9. Avaliação**
 
