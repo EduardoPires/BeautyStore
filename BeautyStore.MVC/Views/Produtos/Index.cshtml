@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BeautyStore.Domain.Entities.Produto>
+
+@{
+    ViewData["Title"] = "Lista de produtos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["Sucesso"] != null || ViewData["Sucesso"] != null)
+{
+    var mensagem = TempData["Sucesso"] != null ? TempData["Sucesso"] : ViewData["Sucesso"];
+
+    <div style="padding-top: 15px"></div>
+
+    <div id="msg_box" class="alert alert-success">
+        <h4 id="msgRetorno">@Html.Raw(mensagem)</h4>
+    </div>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Erro"]
+    </div>
+}
+
+
+<p>
+    <a class="btn btn-primary" asp-action="Create"><span class="fa fa-plus"></span> Novo</a>
+</p>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                @if (!string.IsNullOrEmpty(item.Imagem))
+                {
+                    <img src="@Url.Content(item.Imagem)" class="card-img-top" alt="Imagem do Produto" style="height: 150px; width: 150px; object-fit: cover; margin: auto;">
+                }
+                else
+                {
+                    <div class="text-center p-4 bg-light">Produto sem imagem</div>
+                }
+
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nome</h5>
+                    <p class="card-text">@item.Descricao</p>
+                    <p class="fw-bold text-primary">R$ @item.Preco.ToString("N2")</p>
+                    <p class="text-muted">Estoque: @item.Estoque</p>
+                    <p class="text-muted">Categoria: @item.Categoria.Descricao</p>
+                </div>
+
+                <div class="card-footer d-flex justify-content-between">
+                    <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                    <a asp-action="Edit" class="btn btn-info" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
