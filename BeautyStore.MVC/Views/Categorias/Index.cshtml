@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<BeautyStore.Domain.Entities.Categoria>
 
 @{
-    ViewData["Title"] = "Lista de categorias";
+    ViewData["Title"] = "Listagem de Categorias";
 }
 
-<h1>@ViewData["Title"]</h1>
+<center><h2>@ViewData["Title"]</h2></center>
 
 @if (TempData["Sucesso"] != null || ViewData["Sucesso"] != null)
 {
@@ -24,38 +24,55 @@
     </div>
 }
 
-
 <p>
-    <a class="btn btn-primary" asp-action="Create"><span class="fa fa-plus"></span> Novo</a>
+	<a class="btn btn-success" asp-action="Create"><i class="fa fa-plus"></i></a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
-                    <a asp-action="Edit" class="btn btn-info" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="container-fluid py-4">
+	<div class="row">
+		<div class="col-12">
+			<div class="card mb-4">
+
+				<div class="card-header pb-0">
+					<h6>@ViewData["Title"]</h6>
+				</div>
+
+				<div class="card-body px-0 pt-0 pb-2">
+					<div class="table-responsive p-0">
+						<table class="table align-items-center mb-0">
+							<thead>
+								<tr>
+									<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Nome)</th>
+									<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.Descricao)</th>
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ações</th>
+								</tr>
+							</thead>
+							@foreach (var item in Model)
+							{
+								<tbody>
+									<tr>
+										<td>
+											<div class="d-flex px-2 py-1">
+												<div class="d-flex flex-column justify-content-center">
+													<h6 class="mb-0 text-sm"> @item.Nome</h6>
+												</div>
+											</div>
+										</td>
+										<td style="width: 300px; max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+											<p class="text-xs font-weight-bold mb-0">@item.Descricao</p>
+										</td>
+										<td class="align-middle text-center text-sm">
+											<a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+											<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
+											<a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+										</td>
+									</tr>
+								</tbody>	
+							}
+						</table>							
+					</div>
+				</div>  
+			</div>  
+		</div> 
+	</div>
+</div>

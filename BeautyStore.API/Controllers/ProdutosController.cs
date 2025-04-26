@@ -203,7 +203,7 @@ namespace BeautyStore.API.Controllers
         /// </summary>
         /// <param name="id">Id</param>
         [Route("ExcluirProduto/{id}")]
-        [HttpPut]
+        [HttpDelete]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status400BadRequest)]

@@ -2,60 +2,67 @@
 @model BeautyStore.Domain.Entities.Produto
 
 @{
-    ViewData["Title"] = "Cadastrar novo produto";
+    ViewData["Title"] = "Cadastrar Produto";
 }
 
-<h1>@ViewData["Title"]</h1>
+<center><h2>@ViewData["Title"]</h2></center>
 
-<h4>Preencha os dados corretamente</h4>
-<hr />
-
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-8">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-       
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-8">
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </dt>
+                    </dl>
+                    <dl class="row">
+                        <dd class="col-sm-8">
+                            <label asp-for="Descricao" class="control-label"></label>
+                            <input asp-for="Descricao" class="form-control" />
+                            <span asp-validation-for="Descricao" class="text-danger"></span>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dd class="col-sm-8">
+                            <label asp-for="Imagem" class="control-label"></label>
+                            <input type="file" name="Imagem" class="form-control" />
+                            <span asp-validation-for="Imagem" class="text-danger"></span>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dd class="col-sm-8">
+                            <label asp-for="Preco" class="control-label"></label>
+                            <input asp-for="Preco" class="form-control" />
+                            <span asp-validation-for="Preco" class="text-danger"></span>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dd class="col-sm-8">
+                            <label asp-for="Estoque" class="control-label"></label>
+                            <input asp-for="Estoque" class="form-control" />
+                            <span asp-validation-for="Estoque" class="text-danger"></span>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dd class="col-sm-8">
+                            <label asp-for="Categoria" class="control-label"></label>
+                            <select asp-for="CategoriaId" class="form-control inputfull select2" asp-items="ViewBag.ListCategorias">
+                                <option value="">-- Selecione --</option>
+                            </select>
+                            <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                        </dd>
+                    </dl>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Imagem" class="control-label"></label>
-                <input type="file" name="Imagem" class="form-control" />
-                <span asp-validation-for="Imagem" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control" />
-                <span asp-validation-for="Preco" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Estoque" class="control-label"></label>
-                <input asp-for="Estoque" class="form-control" />
-                <span asp-validation-for="Estoque" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Categoria" class="control-label"></label>
-                <select asp-for="CategoriaId" class="form-control inputfull select2" asp-items="ViewBag.ListCategorias">
-                    <option value="">-- Selecione --</option>
-                </select>
-                <span asp-validation-for="CategoriaId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Enviar" class="btn btn-info" />
-                <a asp-action="Index" class="btn btn-warning">Voltar</a>
+                <div class="card-footer d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success"><span class="fa fa-check"></span></button>
+                    <a class="btn btn-dark" asp-action="Index"><span class="fa fa-arrow-left"></span></a>
+                </div>
             </div>
         </form>
     </div>
@@ -66,3 +73,5 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+
